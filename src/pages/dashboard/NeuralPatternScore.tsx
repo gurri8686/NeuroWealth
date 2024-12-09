@@ -3,7 +3,7 @@ import { LinearProgress,Typography  } from '@mui/material';
 import { Card, CardContent, Box } from '@mui/material';
 import MindImg from "../../assets/mind.png";
 interface EnhancedProgressBarProps {
-    score: number;  
+    score: number;
   }
   
 
@@ -23,45 +23,75 @@ const EnhancedProgressBar : React.FC<EnhancedProgressBarProps>= ({ score }) => {
     return (
       <Card
       sx={{
-        width: '700px',
+        width: {
+          xs: '90%', // 90% width on extra small screens
+          sm: '80%', // 80% on small screens
+          md: '700px', // 700px on medium and above screens
+        },
         margin: '20px auto',
         borderRadius: '16px',
         background: '#fff',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-        padding:'50px 0 50px'
+        padding: {
+          xs: '20px', // smaller padding for small screens
+          sm: '30px', // medium padding for small and medium screens
+          md: '50px 0', // default padding for larger screens
+        },
       }}
     >
-      <CardContent sx={{ padding: '20px'}}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '15px' }}>
+      <CardContent sx={{ padding: '20px' }}>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 'bold',
+            textAlign: 'center',
+            marginBottom: '15px',
+          }}
+        >
           Neural Pattern Score
         </Typography>
-        <Box sx={{ textAlign: 'center', marginTop: '20px', }}>
+    
+        <Box sx={{ textAlign: 'center', marginTop: '20px' }}>
           <img
             src={MindImg}
             alt="Neural Pattern"
             style={{
               width: '100px',
-              margin:'20px auto 30px',
+              margin: '20px auto 30px',
               height: 'auto',
             }}
           />
         </Box>
+    
         <Box sx={{ position: 'relative', marginBottom: '20px' }}>
           <LinearProgress
             variant="indeterminate"
             value={score}
           />
         </Box>
-
-        <Typography variant="body1" sx={{ textAlign: 'center', fontWeight: '500', marginBottom: '40px' }}>
+    
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: 'center',
+            fontWeight: '500',
+            marginBottom: '40px',
+          }}
+        >
           {scoreText}
         </Typography>
-        <Typography variant="body2" sx={{ textAlign: 'center', color: '#666' }}>
+        <Typography
+          variant="body2"
+          sx={{
+            textAlign: 'center',
+            color: '#666',
+          }}
+        >
           {progressText}
         </Typography>
-     
       </CardContent>
     </Card>
+    
     );
   };
 

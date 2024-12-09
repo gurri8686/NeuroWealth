@@ -2,5 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-body{ font-family: "Roboto", serif;}
+body{ font-family: "Roboto", serif; background: #e7e8f5;}
 
